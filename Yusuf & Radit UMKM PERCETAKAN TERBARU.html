@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CETAKIN - Percetakan & Fotokopi</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+nav {
+    background: linear-gradient(90deg, #003B8F, #0066CC, #168CFF);
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.20);
+}
+
+nav h2 {
+    color: white;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+nav h2 span {
+    color: #FFD700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #FFD700;
+}
+
+/* HERO */
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #eaf4ff, #ffffff, #dceeff);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero small {
+    color: #0066CC;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin: 12px 0;
+    color: #003B8F;
+}
+
+.hero h1 span {
+    color: #0066CC;
+}
+
+.hero h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: #555;
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(90deg, #E6B800, #FFD700);
+    color: #111;
+    padding: 12px 27px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+/* SECTION */
+section {
+    padding: 75px 7%;
+}
+
+.judul {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.judul p {
+    color: #0066CC;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.judul h2 {
+    color: #003B8F;
+    font-size: 31px;
+    margin-top: 5px;
+}
+
+/* PRODUK */
+#produk {
+    background: #f5f9fd;
+}
+
+.produk-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 13px 25px rgba(0,0,0,0.13);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card h3 {
+    color: #0066CC;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.card p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.harga {
+    color: #111 !important;
+    font-weight: bold;
+    font-size: 17px !important;
+}
+
+.pesan {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 9px 16px;
+    background: #003B8F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pesan:hover {
+    background: #0066CC;
+    transform: translateY(-2px);
+}
+
+/* TENTANG */
+#tentang {
+    background: white;
+}
+
+.tentang-container {
+    max-width: 950px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.tentang-text h3 {
+    color: #003B8F;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.tentang-text h3 span {
+    color: #0066CC;
+}
+
+.tentang-text p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 13px;
+}
+
+.data-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.data-box {
+    background: #f2f7ff;
+    border: 1px solid #dce9f7;
+    padding: 22px 10px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.data-box h3 {
+    color: #0066CC;
+    font-size: 25px;
+}
+
+.data-box p {
+    color: #555;
+    font-size: 13px;
+}
+
+/* KEUNGGULAN */
+#keunggulan {
+    background: #f5f9fd;
+}
+
+.keunggulan-container {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.keunggulan-box {
+    background: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 10px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+    margin: auto auto 15px;
+    border-radius: 50%;
+    background: #e7f2ff;
+    color: #0066CC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.keunggulan-box h3 {
+    margin-bottom: 8px;
+}
+
+.keunggulan-box p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* KONTAK */
+#kontak {
+    background: linear-gradient(135deg, #003B8F, #0066CC, #168CFF);
+    color: white;
+}
+
+#kontak .judul h2 {
+    color: white;
+}
+
+#kontak .judul p {
+    color: #FFD700;
+}
+
+.kontak-container {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.kontak-box {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 10px;
+    padding: 27px;
+}
+
+.kontak-box h3 {
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+
+.kontak-box p {
+    color: #eee;
+    font-size: 14px;
+    margin: 9px 0;
+}
+
+/* FOOTER */
+footer {
+    background: #001f4d;
+    color: #ccc;
+    text-align: center;
+    padding: 23px;
+    font-size: 13px;
+}
+
+footer strong {
+    color: #FFD700;
+}
+
+/* KERANJANG */
+.cart-floating {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 9998;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+.cart-floating:hover {
+    transform: translateY(-3px);
+    background: #c62828;
+}
+
+/* OVERLAY */
+.cart-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+/* MODAL */
+.cart-modal {
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* HEADER CART */
+.cart-header {
+    background: linear-gradient(90deg, #003B8F, #0066CC);
+    color: white;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.cart-header h2 {
+    font-size: 22px;
+}
+
+.cart-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* CART CONTENT */
+.cart-content {
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cart-item h3 {
+    color: #003B8F;
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.cart-item p {
+    color: #666;
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.cart-controls button {
+    min-width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    background: #168CFF;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart-controls span {
+    min-width: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cart-delete {
+    background: #ef5350 !important;
+    padding: 0 10px;
+}
+
+/* TOTAL */
+.cart-total {
+    padding: 18px 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+}
+
+.cart-total span:last-child {
+    color: #003B8F;
+}
+
+/* CHECKOUT */
+.checkout-form {
+    padding: 20px;
+    background: #f5f9fd;
+}
+
+.checkout-form h3 {
+    color: #003B8F;
+    margin-bottom: 15px;
+}
+
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #d5dce5;
+    border-radius: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.checkout-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.checkout-label {
+    display: block;
+    color: #003B8F;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* WHATSAPP */
+.whatsapp-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #25D366;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.whatsapp-button:hover {
+    background: #1ebe5d;
+}
+
+/* EMPTY CART */
+.empty-cart {
+    text-align: center;
+    padding: 45px 20px;
+    color: #777;
+}
+
+.empty-cart-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 900px) {
+    .produk-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tentang-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h3 {
+        font-size: 19px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .judul h2 {
+        font-size: 26px;
+    }
+
+    .produk-container {
+        grid-template-columns: 1fr;
+    }
+
+    .keunggulan-container {
+        grid-template-columns: 1fr;
+    }
+
+    .kontak-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-floating {
+        right: 15px;
+        bottom: 15px;
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    .cart-modal {
+        max-height: 94vh;
+        border-radius: 15px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-controls {
+        justify-content: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>CETAK<span>IN</span></h2>
+
+    <ul>
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#produk">Produk</a></li>
+        <li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="#keunggulan">Keunggulan</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+    </ul>
+</nav>
+
+<!-- BERANDA -->
+<section class="hero" id="beranda">
+    <div class="hero-content">
+
+        <small>SELAMAT DATANG DI CETAKIN</small>
+
+        <h1>
+            Cetak Mudah,
+            <span>Hasil Berkualitas</span>
+        </h1>
+
+        <h3>
+            Solusi Percetakan & Fotokopi Terpercaya
+        </h3>
+
+        <p>
+            CETAKIN menyediakan berbagai layanan
+            percetakan dan fotokopi dengan hasil
+            berkualitas, proses cepat, dan harga
+            terjangkau.
+        </p>
+
+        <a href="#produk" class="button">
+            Lihat Produk
+        </a>
+
+    </div>
+</section>
+
+<!-- PRODUK -->
+<section id="produk">
+
+    <div class="judul">
+        <p>PRODUK & LAYANAN</p>
+        <h2>Pilihan Layanan CETAKIN</h2>
+    </div>
+
+    <div class="produk-container">
+
+        <div class="card">
+            <img
+                src="https://placehold.co/600x350/003B8F/FFFFFF?text=Print+Dokumen"
+                alt="Print Dokumen">
+
+            <div class="card-info">
+                <h3>Print Dokumen</h3>
+
+                <p>
+                    Mencetak dokumen hitam putih
+                    maupun berwarna dengan hasil
+                    jelas dan rapi.
+                </p>
+
+                <p class="harga">
+                    Mulai Rp500 / lembar
+                </p>
+
+                <button
+                    class="pesan"
+                    onclick="tambahKeranjang('Print Dokumen', 500)">
+                    + Keranjang
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://placehold.co/600x350/0066CC/FFFFFF?text=Fotokopi"
+                alt="Fotokopi">
+
+            <div class="card-info">
+                <h3>Fotokopi</h3>
+
+                <p>
+                    Fotokopi dokumen untuk sekolah,
+                    pekerjaan, administrasi dan
+                    kebutuhan lainnya.
+                </p>
+
+                <p class="harga">
+                    Mulai Rp500 / lembar
+                </p>
+
+                <button
+                    class="pesan"
+                    onclick="tambahKeranjang('Fotokopi', 500)">
+                    + Keranjang
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://placehold.co/600x350/168CFF/FFFFFF?text=Cetak+Foto"
+                alt="Cetak Foto">
+
+            <div class="card-info">
+                <h3>Cetak Foto</h3>
+
+                <p>
+                    Mencetak foto dengan berbagai
+                    ukuran sesuai kebutuhan.
+                </p>
+
+                <p class="harga">
+                    Mulai Rp2.000
+                </p>
+
+                <button
+                    class="pesan"
+                    onclick="tambahKeranjang('Cetak Foto', 2000)">
+                    + Keranjang
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://placehold.co/600x350/003B8F/FFFFFF?text=Banner+dan+Spanduk"
+                alt="Banner dan Spanduk">
+
+            <div class="card-info">
+                <h3>Banner & Spanduk</h3>
+
+                <p>
+                    Cocok untuk promosi usaha,
+                    acara sekolah, maupun kegiatan.
+                </p>
+
+                <p class="harga">
+                    Mulai Rp25.000 / meter
+                </p>
+
+                <button
+                    class="pesan"
+                    onclick="tambahKeranjang('Banner & Spanduk', 25000)">
+                    + Keranjang
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://placehold.co/600x350/0066CC/FFFFFF?text=Brosur"
+                alt="Brosur">
+
+            <div class="card-info">
+                <h3>Brosur</h3>
+
+                <p>
+                    Brosur untuk promosi usaha,
+                    sekolah, organisasi maupun acara.
+                </p>
+
+                <p class="harga">
+                    Mulai Rp500 / lembar
+                </p>
+
+                <button
+                    class="pesan"
+                    onclick="tambahKeranjang('Brosur', 500)">
+                    + Keranjang
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://placehold.co/600x350/168CFF/FFFFFF?text=Kartu+Nama"
+                alt="Kartu Nama">
+
+            <div class="card-info">
+                <h3>Kartu Nama</h3>
+
+                <p>
+                    Kartu nama profesional untuk
+                    kebutuhan pribadi maupun bisnis.
+                </p>
+
+                <p class="harga">
+                    Mulai Rp30.000 / 100 pcs
+                </p>
+
+                <button
+                    class="pesan"
+                    onclick="tambahKeranjang('Kartu Nama', 30000)">
+                    + Keranjang
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+
+    <div class="judul">
+        <p>TENTANG KAMI</p>
+        <h2>Mengenal CETAKIN</h2>
+    </div>
+
+    <div class="tentang-container">
+
+        <div class="tentang-text">
+
+            <h3>CETAK<span>IN</span></h3>
+
+            <p>
+                CETAKIN adalah UMKM yang bergerak
+                di bidang percetakan dan fotokopi.
+                Kami membantu memenuhi berbagai
+                kebutuhan cetak masyarakat dengan
+                mengutamakan kualitas, kecepatan,
+                dan harga terjangkau.
+            </p>
+
+            <p>
+                Layanan kami dapat digunakan oleh
+                pelajar, mahasiswa, masyarakat umum,
+                hingga pemilik usaha.
+            </p>
+
+        </div>
+
+        <div class="data-container">
+
+            <div class="data-box">
+                <h3>2022</h3>
+                <p>Tahun Berdiri</p>
+            </div>
+
+            <div class="data-box">
+                <h3>6+</h3>
+                <p>Produk</p>
+            </div>
+
+            <div class="data-box">
+                <h3>100+</h3>
+                <p>Pelanggan</p>
+            </div>
+
+            <div class="data-box">
+                <h3>Cepat</h3>
+                <p>Pelayanan</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section id="keunggulan">
+
+    <div class="judul">
+        <p>KEUNGGULAN</p>
+        <h2>Mengapa Memilih CETAKIN?</h2>
+    </div>
+
+    <div class="keunggulan-container">
+
+        <div class="keunggulan-box">
+
+            <div class="icon">Rp</div>
+
+            <h3>Harga Terjangkau</h3>
+
+            <p>
+                Harga layanan terjangkau untuk
+                pelajar, masyarakat umum,
+                dan usaha kecil.
+            </p>
+
+        </div>
+
+        <div class="keunggulan-box">
+
+            <div class="icon">✓</div>
+
+            <h3>Hasil Berkualitas</h3>
+
+            <p>
+                Hasil cetakan rapi, jelas,
+                dan sesuai kebutuhan.
+            </p>
+
+        </div>
+
+        <div class="keunggulan-box">
+
+            <div class="icon">⚡</div>
+
+            <h3>Proses Cepat</h3>
+
+            <p>
+                Proses pengerjaan cepat agar
+                pelanggan tidak menunggu lama.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+
+    <div class="judul">
+        <p>KONTAK</p>
+        <h2>Hubungi CETAKIN</h2>
+    </div>
+
+    <div class="kontak-container">
+
+        <div class="kontak-box">
+
+            <h3>Informasi Toko</h3>
+
+            <p>
+                <b>Nama:</b> CETAKIN
+            </p>
+
+            <p>
+                <b>Alamat:</b>
+                Jl. Mawar Merah No. 10,
+                Surabaya
+            </p>
+
+            <p>
+                <b>Jam Buka:</b>
+                Senin - Sabtu,
+                08.00 - 20.00 WIB
+            </p>
+
+        </div>
+
+        <div class="kontak-box">
+
+            <h3>Hubungi Kami</h3>
+
+            <p>
+                <b>WhatsApp:</b>
+                082359729175
+            </p>
+
+            <p>
+                <b>Instagram:</b>
+                @cetakin.id
+            </p>
+
+            <p>
+                <b>Email:</b>
+                cetakin@gmail.com
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 <strong>CETAKIN</strong>
+    </p>
+
+    <p>
+        Cetak Mudah, Hasil Berkualitas
+    </p>
+
+</footer>
+
+<!-- TOMBOL KERANJANG -->
+<button
+    class="cart-floating"
+    onclick="bukaKeranjang()">
+
+    🛒 Keranjang
+    (<span id="jumlahKeranjang">0</span>)
+
+</button>
+
+<!-- MODAL KERANJANG -->
+<div
+    class="cart-overlay"
+    id="cartOverlay">
+
+    <div class="cart-modal">
+
+        <div class="cart-header">
+
+            <h2>🛒 Keranjang Belanja</h2>
+
+            <button
+                class="cart-close"
+                onclick="tutupKeranjang()">
+                ×
+            </button>
+
+        </div>
+
+        <div
+            class="cart-content"
+            id="cartContent">
+        </div>
+
+        <div class="cart-total">
+
+            <span>Total</span>
+
+            <span id="cartTotal">
+                Rp0
+            </span>
+
+        </div>
+
+        <div class="checkout-form">
+
+            <h3>Data Pemesan</h3>
+
+            <input
+                type="text"
+                id="namaPemesan"
+                placeholder="Nama Anda">
+
+            <input
+                type="tel"
+                id="nomorPemesan"
+                placeholder="Nomor WhatsApp Anda">
+
+            <label class="checkout-label">
+                Metode Pengambilan
+            </label>
+
+            <select id="metodePengambilan">
+
+                <option value="">
+                    Pilih Metode Pengambilan
+                </option>
+
+                <option value="Ambil di Toko">
+                    Ambil di Toko
+                </option>
+
+                <option value="Diantar">
+                    Diantar
+                </option>
+
+            </select>
+
+            <label class="checkout-label">
+                Metode Pembayaran
+            </label>
+
+            <select id="metodePembayaran">
+
+                <option value="">
+                    Pilih Metode Pembayaran
+                </option>
+
+                <option value="COD">
+                    COD - Bayar di Tempat
+                </option>
+
+                <option value="Transfer Bank">
+                    Transfer Bank
+                </option>
+
+                <option value="DANA">
+                    DANA
+                </option>
+
+                <option value="OVO">
+                    OVO
+                </option>
+
+                <option value="GoPay">
+                    GoPay
+                </option>
+
+            </select>
+
+            <textarea
+                id="catatanPesanan"
+                placeholder="Catatan Pesanan (opsional)"></textarea>
+
+            <button
+                class="whatsapp-button"
+                onclick="kirimWhatsApp()">
+
+                Pesan Sekarang via WhatsApp
+
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+let keranjang = [];
+
+function formatRupiah(angka) {
+    return "Rp" + angka.toLocaleString("id-ID");
+}
+
+function tambahKeranjang(nama, harga) {
+
+    const produk = keranjang.find(
+        item => item.nama === nama
+    );
+
+    if (produk) {
+        produk.jumlah++;
+    } else {
+        keranjang.push({
+            nama: nama,
+            harga: harga,
+            jumlah: 1
+        });
+    }
+
+    updateKeranjang();
+}
+
+function updateKeranjang() {
+
+    const container =
+        document.getElementById("cartContent");
+
+    const jumlah =
+        document.getElementById("jumlahKeranjang");
+
+    const totalElement =
+        document.getElementById("cartTotal");
+
+    let totalJumlah = 0;
+    let totalHarga = 0;
+
+    keranjang.forEach(item => {
+
+        totalJumlah += item.jumlah;
+
+        totalHarga +=
+            item.harga * item.jumlah;
+
+    });
+
+    jumlah.textContent = totalJumlah;
+
+    totalElement.textContent =
+        formatRupiah(totalHarga);
+
+    if (keranjang.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty-cart">
+
+                <div class="empty-cart-icon">
+                    🛒
+                </div>
+
+                <h3>
+                    Keranjang masih kosong
+                </h3>
+
+                <p>
+                    Silakan pilih produk terlebih dahulu.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML = "";
+
+    keranjang.forEach((item, index) => {
+
+        const subtotal =
+            item.harga * item.jumlah;
+
+        container.innerHTML += `
+            <div class="cart-item">
+
+                <div>
+
+                    <h3>
+                        ${item.nama}
+                    </h3>
+
+                    <p>
+                        ${formatRupiah(item.harga)} / item
+                    </p>
+
+                    <p>
+                        Subtotal:
+                        <strong>
+                            ${formatRupiah(subtotal)}
+                        </strong>
+                    </p>
+
+                </div>
+
+                <div class="cart-controls">
+
+                    <button
+                        onclick="kurangiJumlah(${index})">
+                        −
+                    </button>
+
+                    <span>
+                        ${item.jumlah}
+                    </span>
+
+                    <button
+                        onclick="tambahJumlah(${index})">
+                        +
+                    </button>
+
+                    <button
+                        class="cart-delete"
+                        onclick="hapusProduk(${index})">
+                        Hapus
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+function tambahJumlah(index) {
+
+    keranjang[index].jumlah++;
+
+    updateKeranjang();
+}
+
+function kurangiJumlah(index) {
+
+    if (keranjang[index].jumlah > 1) {
+
+        keranjang[index].jumlah--;
+
+    } else {
+
+        keranjang.splice(index, 1);
+
+    }
+
+    updateKeranjang();
+}
+
+function hapusProduk(index) {
+
+    keranjang.splice(index, 1);
+
+    updateKeranjang();
+}
+
+function bukaKeranjang() {
+
+    document
+        .getElementById("cartOverlay")
+        .style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+function tutupKeranjang() {
+
+    document
+        .getElementById("cartOverlay")
+        .style.display = "none";
+
+    document.body.style.overflow = "auto";
+}
+
+document
+    .getElementById("cartOverlay")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            tutupKeranjang();
+        }
+
+    });
+
+function kirimWhatsApp() {
+
+    if (keranjang.length === 0) {
+
+        alert("Keranjang masih kosong.");
+
+        return;
+    }
+
+    const nama =
+        document
+            .getElementById("namaPemesan")
+            .value.trim();
+
+    const nomor =
+        document
+            .getElementById("nomorPemesan")
+            .value.trim();
+
+    const pengambilan =
+        document
+            .getElementById("metodePengambilan")
+            .value;
+
+    const pembayaran =
+        document
+            .getElementById("metodePembayaran")
+            .value;
+
+    const catatan =
+        document
+            .getElementById("catatanPesanan")
+            .value.trim();
+
+    if (!nama) {
+
+        alert("Silakan isi nama Anda.");
+
+        return;
+    }
+
+    if (!nomor) {
+
+        alert("Silakan isi nomor WhatsApp Anda.");
+
+        return;
+    }
+
+    if (!pengambilan) {
+
+        alert("Silakan pilih metode pengambilan.");
+
+        return;
+    }
+
+    if (!pembayaran) {
+
+        alert("Silakan pilih metode pembayaran.");
+
+        return;
+    }
+
+    const nomorToko = "6282359729175";
+
+    let pesan =
+        "Halo CETAKIN, saya ingin melakukan pemesanan.\n\n";
+
+    pesan += "*DATA PEMESAN*\n";
+
+    pesan +=
+        "Nama: " +
+        nama +
+        "\n";
+
+    pesan +=
+        "No. WhatsApp: " +
+        nomor +
+        "\n\n";
+
+    pesan += "*DAFTAR PESANAN*\n";
+
+    let total = 0;
+
+    keranjang.forEach((item, index) => {
+
+        const subtotal =
+            item.harga * item.jumlah;
+
+        total += subtotal;
+
+        pesan +=
+            (index + 1) +
+            ". " +
+            item.nama +
+            " x" +
+            item.jumlah +
+            " = " +
+            formatRupiah(subtotal) +
+            "\n";
+    });
+
+    pesan +=
+        "\n*TOTAL: " +
+        formatRupiah(total) +
+        "*\n\n";
+
+    pesan +=
+        "*METODE PENGAMBILAN*\n" +
+        pengambilan +
+        "\n\n";
+
+    pesan +=
+        "*METODE PEMBAYARAN*\n" +
+        pembayaran +
+        "\n";
+
+    if (catatan) {
+
+        pesan +=
+            "\n*CATATAN PESANAN*\n" +
+            catatan;
+    }
+
+    const linkWhatsApp =
+        "https://wa.me/" +
+        nomorToko +
+        "?text=" +
+        encodeURIComponent(pesan);
+
+    window.open(
+        linkWhatsApp,
+        "_blank"
+    );
+}
+
+updateKeranjang();
+</script>
+
+</body>
+</html>
